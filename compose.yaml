@@ -1,0 +1,12 @@
+services:
+  proven:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    env_file:
+      - .env
+    volumes:
+      - proven_data:/app/data
+volumes:
+  proven_data:
